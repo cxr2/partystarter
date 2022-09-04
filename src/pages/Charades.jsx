@@ -4,7 +4,7 @@ export default function Charades() {
   return (
     <>
       <div class="container">
-        <h1 className="my-5">Charades Generator</h1>
+        <h1 className="my-5">Charades Word Generator</h1>
 
         <span id="word"></span>
         <button className="btn charades btn-primary" onClick={Film}>
