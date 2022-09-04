@@ -77,3 +77,16 @@ h2 {
   font-weight: 600 !important;
   font-size: 3em !important;
 }
+
+#word {
+  display: block;
+  font-size: 2.5em;
+}
+
+button.charades {
+  margin: 1em 1em;
+}
+
+h1 {
+  font-weight: 600 !important;
+}
