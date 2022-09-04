@@ -103,14 +103,19 @@ function PartyChat() {
   // fetchMessageHistory();
 
   useEffect(() => {
-    const chatHistoryUnsubscribe = onSnapshot(chatMessagesRef, (snapshot) => {
+    const chatHistoryUnsubscribe = onSnapshot(chatHistoryRef, (snapshot) => {
       snapshot.docChanges().forEach((change) => {
-        console.log("change.doc.data() ", change.doc.data());
+        console.log("CHANGE:", change.doc.data()["message-array"]);
         if (!_.isEqual(chatHistory, change.doc.data())) {
           console.log("Updating chatHistory in state...");
-          setChatHistory(change.doc.data());
+          setChatHistory(change.doc.data()["message-array"]);
         }
       });
+
+      // .forEach((change) => {
+      //   console.log("change.doc.data() ", change.doc.data());
+
+      // });
     });
 
     // fetchMessageHistory();
@@ -119,7 +124,7 @@ function PartyChat() {
     return () => {
       chatHistoryUnsubscribe();
     };
-  }, [chatHistory, userName]);
+  }, []);
 
   const now = new Date();
 
@@ -194,6 +199,11 @@ function PartyChat() {
     };
   }
 
+  const reversedMessageArr = [];
+  for (const message of chatHistory) {
+    reversedMessageArr.unshift(message);
+  }
+
   return (
     <div>
       <h2 className="my-5">Party Chat</h2>
@@ -241,7 +251,7 @@ function PartyChat() {
           </div>
           <div id="chatHistory">
             <ul>
-              {chatHistory.map((messageObj, i) => (
+              {reversedMessageArr.map((messageObj, i) => (
                 <li key={i} className="message">
                   <p>
                     {messageObj.sender}{" "}
