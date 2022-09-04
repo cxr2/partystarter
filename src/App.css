@@ -1,11 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&display=swap");
+
 .App {
   text-align: center;
 }
 
 body {
-  color: #287cca;
+  color: #287cca !important;
+  font-family: "Montserrat", sans-serif !important;
 }
 
 .navbar {
-  background-color: #caf4ff !important;
+  background-color: #caf4ff;
+}
+
+nav .navbar-brand {
+  font-size: 2em;
+  font-weight: 600;
+  color: #287cca;
+}
+
+nav .nav-link {
+  color: #287cca;
+  font-size: 1.2em;
+}
+
+nav .nav-link:hover {
+  font-weight: 600;
+  color: #287cca;
+}
+
+#rsvp {
+  background-color: #f2095e;
+  color: white;
+  border-radius: 100px;
+  letter-spacing: 1.5px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+#rsvp:hover {
+  opacity: 0.8;
 }
