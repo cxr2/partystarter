@@ -233,7 +233,7 @@ function PartyChat() {
               </button>
               <button
                 className="partychatclear btn btn-danger m-2"
-                type="button reset"
+                type="reset"
               >
                 Clear
               </button>
