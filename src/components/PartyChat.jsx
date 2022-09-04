@@ -142,44 +142,60 @@ function PartyChat() {
 
   return (
     <div>
-      <h2>Chat</h2>
+      <h2 className="my-5">Party Chat</h2>
       <div id="chatContainer">
         <div id="chatInput">
-          <form>
-            <label htmlFor="nameInput">Name</label>
-            <input
-              id="nameInput"
-              type="text"
-              value={userName}
-              onChange={($e) => setUserName($e.target.value)}
-              required
-            />
-            <label htmlFor="messageInput">Write a message</label>
-            <input
-              id="messageInput"
-              type="text"
-              value={userMessage.message}
-              onChange={($e) => setUserMessage($e.target.value)}
-              required
-            />
-            <button type="submit" onClick={() => sendMessage}>
-              Send
-            </button>
-            <button type="reset">Clear</button>
-          </form>
-        </div>
-        <div id="chatHistory">
-          <ul>
-            {chatHistory.map((messageObj, i) => (
-              <li key={i} className="message">
-                <p>
-                  {messageObj.sender}{" "}
-                  {timeAgoParser(messageObj.time).timeAgoString}
-                </p>
-                <p>{messageObj.message}</p>
-              </li>
-            ))}
-          </ul>
+          <div className="container">
+            <form>
+              <div className="row justify-content-center">
+                <div className="col-8">
+                  <label htmlFor="nameInput">Name:</label>
+                  <input
+                    id="nameInput"
+                    type="text"
+                    value={userName}
+                    onChange={($e) => setUserName($e.target.value)}
+                    required
+                  />
+                </div>
+              </div>
+              <label htmlFor="messageInput" className="message">
+                Write a message
+              </label>
+              <br />
+              <input
+                id="messageInput"
+                type="text"
+                value={userMessage.message}
+                onChange={($e) => setUserMessage($e.target.value)}
+                required
+              />
+              <br />
+              <button
+                className="partychatsubmit"
+                type="submit"
+                onClick={() => sendMessage}
+              >
+                Send
+              </button>
+              <button className="partychatclear" type="reset">
+                Clear
+              </button>
+            </form>
+          </div>
+          <div id="chatHistory">
+            <ul>
+              {chatHistory.map((messageObj, i) => (
+                <li key={i} className="message">
+                  <p>
+                    {messageObj.sender}{" "}
+                    {timeAgoParser(messageObj.time).timeAgoString}
+                  </p>
+                  <p>{messageObj.message}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </div>

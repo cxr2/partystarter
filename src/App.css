@@ -9,6 +9,10 @@ body {
   font-family: "Montserrat", sans-serif !important;
 }
 
+a {
+  text-decoration: none !important;
+}
+
 .navbar {
   background-color: #caf4ff;
 }
@@ -48,4 +52,23 @@ button a {
 
 button a:hover {
   color: white;
+}
+
+#countdown {
+  font-size: 2em;
+  font-weight: 600;
+}
+
+label {
+  font-size: 1.2em;
+  margin: 1em;
+}
+
+label.message {
+  font-weight: 600;
+}
+
+input#messageInput {
+  height: 150px;
+  width: 350px;
 }
