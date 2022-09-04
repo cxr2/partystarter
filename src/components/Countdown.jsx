@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Countdown from "react-countdown";
+import { createRoot } from "react-dom/client";
 
 export default function CountdownTimer() {
   const Completionist = () => <span>It's PARTY TIME!</span>;
@@ -54,7 +55,8 @@ export default function CountdownTimer() {
     }
   };
 
-  ReactDOM.render(
+  const countdown = ReactDOM.createRoot(document.getElementById("countdown"));
+  countdown.render(
     <Countdown date={FUTURE_DATE} renderer={renderer} />,
     document.getElementById("countdown")
   );
