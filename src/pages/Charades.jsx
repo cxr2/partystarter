@@ -22,11 +22,6 @@ export default function Charades() {
         <button className="btn charades btn-primary" onClick={Idiom}>
           Idiom
         </button>
-
-        {/* <h3 className="my-4 text-start">Instructions:</h3>
-        <h3 className="text-start">
-          Normal charades scoring and timing rules..
-        </h3> */}
       </div>
     </>
   );
