@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import _, { isEqual } from "lodash";
 import {
   getFirestore,
   Firestore,
@@ -41,16 +42,12 @@ function PartyChat() {
   const [userName, setUserName] = useState("Anon");
   const [chatHistory, setChatHistory] = useState([
     {
-      time: new Date(),
+      time: "Sun Sep 04 2022 14:26:22 GMT+0100 (British Summer Time)",
       sender: "Host",
       message: "Welcome to the party!",
     },
   ]);
-  const [userMessage, setUserMessage] = useState({
-    // time: new Date(),
-    // sender: "",
-    // message: "",
-  });
+  const [userMessage, setUserMessage] = useState("");
 
   // set initial chat state
 
@@ -67,71 +64,128 @@ function PartyChat() {
   // }
   // startChat();
 
-  async function sendMessage() {
+  async function sendMessage(e) {
+    e.preventDefault();
     const date = new Date();
-    const message = userMessage.message;
+    const message = userMessage;
     const sender = userName;
     const messageObj = {
-      time: date,
+      time: date.toString(),
       message: message,
       sender: sender,
     };
+    console.log(
+      "🚀 ~ file: PartyChat.jsx ~ line 81 ~ sendMessage ~ messageObj",
+      messageObj
+    );
 
     try {
       await updateDoc(chatMessagesRef, {
         "message-array": arrayUnion(messageObj),
       });
+      fetchMessageHistory();
+      setUserMessage("");
     } catch (error) {
       console.log("error sending message: ", error);
     }
   }
 
-  // useEffect(() => {
-  //   //   const chatHistoryUnsubscribe = onSnapshot(chatMessagesRef, (snapshot) => {
-  //   //     snapshot.docChanges().forEach((change) => {
-  //   //       console.log("change.doc.data() ", change.doc.data());
-  //   //     });
-  //   //   });
-  //   async function fetchMessageHistory() {
-  //     const docSnap = await getDoc(chatMessagesRef);
-  //     if (docSnap.exists()) {
-  //       console.log("Document data:", docSnap.data());
-  //       setChatHistory(docSnap.data()["message-array"]);
-  //       console.log("message history in state", chatHistory);
-  //     } else {
-  //       console.log("Document does not exist");
-  //     }
-  //   }
-  //   fetchMessageHistory();
+  async function fetchMessageHistory() {
+    const docSnap = await getDoc(chatMessagesRef);
+    if (docSnap.exists()) {
+      console.log("Document data:", docSnap.data());
+      setChatHistory(docSnap.data()["message-array"]);
+      console.log("message history in state", chatHistory);
+    } else {
+      console.log("Document does not exist");
+    }
+  }
+  // fetchMessageHistory();
 
-  //   //   return () => {
-  //   //     chatHistoryUnsubscribe();
-  //   //   };
-  // });
+  useEffect(() => {
+    const chatHistoryUnsubscribe = onSnapshot(chatMessagesRef, (snapshot) => {
+      snapshot.docChanges().forEach((change) => {
+        console.log("change.doc.data() ", change.doc.data());
+        if (!_.isEqual(chatHistory, change.doc.data())) {
+          console.log("Updating chatHistory in state...");
+          setChatHistory(change.doc.data());
+        }
+      });
+    });
+
+    // fetchMessageHistory();
+    //
+
+    return () => {
+      chatHistoryUnsubscribe();
+    };
+  }, [chatHistory]);
 
   const now = new Date();
 
   function timeAgoParser(messageTime) {
-    // const date = new Date(messageTime.seconds * 1000);
     console.log(
-      "🚀 ~ file: PartyChat.jsx ~ line 97 ~ timeAgoParser ~ date",
+      "🚀 ~ file: PartyChat.jsx ~ line 125 ~ timeAgoParser ~ messageTime",
       messageTime
     );
+    // const date = new Date(messageTime.seconds * 1000);
+    // console.log(
+    //   "🚀 ~ file: PartyChat.jsx ~ line 97 ~ timeAgoParser ~ date",
+    //   date
+    // );
 
-    const msAgo = now.getTime() - messageTime.getTime();
+    const date = new Date(Date.parse(messageTime));
+
+    const msAgo = now.getTime() - date.getTime();
+    console.log(
+      "🚀 ~ file: PartyChat.jsx ~ line 132 ~ timeAgoParser ~ msAgo",
+      msAgo
+    );
     const secAgo = msAgo / 1000;
+    console.log(
+      "🚀 ~ file: PartyChat.jsx ~ line 134 ~ timeAgoParser ~ secAgo",
+      secAgo
+    );
     const minAgo = Math.floor(secAgo / 60);
+    console.log(
+      "🚀 ~ file: PartyChat.jsx ~ line 136 ~ timeAgoParser ~ minAgo",
+      minAgo
+    );
     const hrsAgo = Math.floor(minAgo / 60);
+    console.log(
+      "🚀 ~ file: PartyChat.jsx ~ line 138 ~ timeAgoParser ~ hrsAgo",
+      hrsAgo
+    );
     const daysAgo = Math.floor(hrsAgo / 24);
+    console.log(
+      "🚀 ~ file: PartyChat.jsx ~ line 140 ~ timeAgoParser ~ daysAgo",
+      daysAgo
+    );
     let timeAgoString;
     if (minAgo < 2) {
       timeAgoString = "Just Now";
+      console.log(
+        "🚀 ~ file: PartyChat.jsx ~ line 139 ~ timeAgoParser ~ timeAgoString",
+        timeAgoString
+      );
     } else if (minAgo < 60) {
       timeAgoString = `${minAgo} minutes ago`;
+      console.log(
+        "🚀 ~ file: PartyChat.jsx ~ line 142 ~ timeAgoParser ~ timeAgoString",
+        timeAgoString
+      );
     } else if (hrsAgo < 24) {
       timeAgoString = `${hrsAgo} hour${hrsAgo > 1 ? "s" : ""} ago`;
+      console.log(
+        "🚀 ~ file: PartyChat.jsx ~ line 145 ~ timeAgoParser ~ timeAgoString",
+        timeAgoString
+      );
     } else {
       timeAgoString = `${daysAgo} day${daysAgo > 1 ? "s" : ""} ago`;
+      console.log(
+        "🚀 ~ file: PartyChat.jsx ~ line 148 ~ timeAgoParser ~ timeAgoString",
+        timeAgoString
+      );
     }
 
     return {
