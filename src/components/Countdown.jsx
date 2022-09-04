@@ -55,9 +55,9 @@ export default function CountdownTimer() {
     }
   };
 
-  const countdown = ReactDOM.createRoot(document.getElementById("countdown"));
-  countdown.render(
-    <Countdown date={FUTURE_DATE} renderer={renderer} />,
-    document.getElementById("countdown")
-  );
+  // const countdown = ReactDOM.createRoot(document.getElementById("countdown"));
+  // countdown.render(
+  return <Countdown date={FUTURE_DATE} renderer={renderer} />;
+  // document.getElementById("countdown")
+  // );
 }
