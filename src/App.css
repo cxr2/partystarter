@@ -40,3 +40,12 @@ nav .nav-link:hover {
 #rsvp:hover {
   opacity: 0.8;
 }
+
+button a {
+  text-decoration: none;
+  color: white;
+}
+
+button a:hover {
+  color: white;
+}
