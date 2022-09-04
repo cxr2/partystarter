@@ -27,9 +27,9 @@ const Navbar = () => {
             <NavLink className="nav-link" to="/charades">
               Charades
             </NavLink>
-            <NavLink className="nav-link" to="/raffle">
+            {/* <NavLink className="nav-link" to="/raffle">
               Raffle
-            </NavLink>
+            </NavLink> */}
           </div>
         </div>
       </div>

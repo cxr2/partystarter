@@ -77,3 +77,42 @@ h2 {
   font-weight: 600 !important;
   font-size: 3em !important;
 }
+
+#word {
+  display: block;
+  font-size: 2.5em;
+}
+
+span #word {
+  border: solid 1px black;
+}
+
+button.charades {
+  margin: 2em 1em;
+}
+
+h1 {
+  font-weight: 600 !important;
+}
+
+li {
+  list-style-type: none;
+}
+
+#chatHistory {
+  width: 70%;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+#chatHistory p {
+  font-size: 1.1em;
+}
+
+#chatHistory .sender {
+  font-weight: 600;
+}
+
+#chatHistory .message {
+  font-size: 1.2em;
+}
