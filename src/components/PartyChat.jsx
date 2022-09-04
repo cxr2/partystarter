@@ -172,13 +172,16 @@ function PartyChat() {
               />
               <br />
               <button
-                className="partychatsubmit"
-                type="submit"
+                className="partychatsubmit btn btn-success m-2"
+                type="submit button"
                 onClick={() => sendMessage}
               >
                 Send
               </button>
-              <button className="partychatclear" type="reset">
+              <button
+                className="partychatclear btn btn-danger m-2"
+                type="button reset"
+              >
                 Clear
               </button>
             </form>
