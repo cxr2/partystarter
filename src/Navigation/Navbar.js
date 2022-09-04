@@ -21,9 +21,15 @@ const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav ms-auto">
-            <NavLink to="/messageboard">Message Board</NavLink>
-            <NavLink to="/charades">Charades</NavLink>
-            <NavLink to="/raffle">Raffle</NavLink>
+            <NavLink className="nav-link" to="/partychat">
+              Party Chat
+            </NavLink>
+            <NavLink className="nav-link" to="/charades">
+              Charades
+            </NavLink>
+            <NavLink className="nav-link" to="/raffle">
+              Raffle
+            </NavLink>
           </div>
         </div>
       </div>
