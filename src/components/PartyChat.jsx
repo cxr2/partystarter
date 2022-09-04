@@ -119,7 +119,7 @@ function PartyChat() {
     return () => {
       chatHistoryUnsubscribe();
     };
-  }, [chatHistory]);
+  }, [chatHistory, userName]);
 
   const now = new Date();
 
@@ -200,7 +200,7 @@ function PartyChat() {
       <div id="chatContainer">
         <div id="chatInput">
           <div className="container">
-            <form>
+            <form onSubmit={(e) => sendMessage(e)}>
               <div className="row justify-content-center">
                 <div className="col-8">
                   <label htmlFor="nameInput">Name:</label>
@@ -228,13 +228,12 @@ function PartyChat() {
               <button
                 className="partychatsubmit btn btn-success m-2"
                 type="submit button"
-                onClick={() => sendMessage}
               >
                 Send
               </button>
               <button
                 className="partychatclear btn btn-danger m-2"
-                type="button reset"
+                type="reset"
               >
                 Clear
               </button>
