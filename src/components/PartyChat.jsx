@@ -243,11 +243,13 @@ function PartyChat() {
             <ul>
               {chatHistory.map((messageObj, i) => (
                 <li key={i} className="message">
-                  <p>
-                    {messageObj.sender}{" "}
-                    {timeAgoParser(messageObj.time).timeAgoString}
+                  <p className="py-2">
+                    <span className="sender"> {messageObj.sender} </span>
+                    <span className="text-muted">
+                      {timeAgoParser(messageObj.time).timeAgoString}
+                    </span>
                   </p>
-                  <p>{messageObj.message}</p>
+                  <p className="message">{messageObj.message}</p>
                 </li>
               ))}
             </ul>
