@@ -176,27 +176,27 @@ const idioms = [
   "Tie the knot",
 ];
 
-function film() {
+export function Film() {
   document.getElementById("word").innerHTML =
     films[Math.floor(Math.random() * films.length)];
 }
 
-function tvShow() {
+export function TvShow() {
   document.getElementById("word").innerHTML =
     tvShows[Math.floor(Math.random() * tvShows.length)];
 }
 
-function song() {
+export function Song() {
   document.getElementById("word").innerHTML =
     songs[Math.floor(Math.random() * songs.length)];
 }
 
-function book() {
+export function Book() {
   document.getElementById("word").innerHTML =
     books[Math.floor(Math.random() * books.length)];
 }
 
-function idiom() {
+export function Idiom() {
   document.getElementById("word").innerHTML =
     idioms[Math.floor(Math.random() * idioms.length)];
 }
