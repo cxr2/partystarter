@@ -66,6 +66,8 @@ label {
 
 label.message {
   font-weight: 600;
+  padding: 1em 1em 0 1em;
+  margin: 0;
 }
 
 input#messageInput {
@@ -132,9 +134,26 @@ li {
 }
 
 div .word__choice {
-  background-color: #f8f9f9 !important;
+  background-color: #f5f7fb;
   height: 5em;
   width: 50%;
   margin: 0 auto;
+  border-radius: 20px;
+}
+
+input {
+  background-color: #f5f7fb;
+  border: none;
+  border-radius: 20px;
+}
+
+#nameInput {
+  height: 2.5em;
+}
+
+p.message {
+  background-color: #64baf9;
+  color: white;
+  padding: 1em 2em;
   border-radius: 20px;
 }
