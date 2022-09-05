@@ -116,3 +116,25 @@ li {
 #chatHistory .message {
   font-size: 1.2em;
 }
+
+.charadesBtns button {
+  background-color: white;
+  border-radius: 100px;
+  border: solid 2px #287cca;
+  color: #287cca;
+  font-weight: 600;
+  padding: 0.5em 1em;
+}
+
+.charadesBtns button:hover {
+  background-color: #287cca;
+  color: white;
+}
+
+div .word__choice {
+  background-color: #f8f9f9 !important;
+  height: 5em;
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 20px;
+}
