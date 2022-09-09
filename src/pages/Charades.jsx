@@ -9,7 +9,7 @@ const Charades = () => {
   };
   return (
     <>
-      <h2 className="my-5">Charades Word Generator</h2>
+      <h2 className="my-5 text-center">Charades Word Generator</h2>
       <div className="word__choice d-flex align-items-center justify-content-center">
         <h3 className="my-5">{word}</h3>
       </div>
