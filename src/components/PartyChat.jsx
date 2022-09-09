@@ -285,7 +285,7 @@ function PartyChat() {
                     <div className="col-4 text-start">
                       <p className="py-2">
                         <span className="sender"> {messageObj.sender} </span>
-                        <span className="text-muted">
+                        <span className="text-muted ms-1">
                           {timeAgoParser(messageObj.time).timeAgoString}
                         </span>
                       </p>

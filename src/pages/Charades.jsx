@@ -1,5 +1,5 @@
 import { films, tvShows, songs, books, idioms } from "../components/data.js";
-import { Button } from "../components/Buttons.js";
+import { Button } from "../components/Button.js";
 import { useState } from "react";
 
 const Charades = () => {
