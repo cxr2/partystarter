@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg">
-      <div className="container-fluid mx-5 px-5 py-3">
+    <nav className="navbar navbar-expand-xl">
+      <div className="container-fluid mx-lg-5 px-5 py-3">
         <NavLink to="/">
           <h1 className="navbar-brand">PartyStarter</h1>
         </NavLink>

@@ -7,7 +7,11 @@ export default function Home() {
       <div className="container" id="home">
         <div className="row justify-content-center">
           <div className="col-12">
-            <img src={Party} className="d-block mx-auto" alt="party" />
+            <img
+              src={Party}
+              className="d-block mx-auto img-fluid"
+              alt="party"
+            />
             <span id="countdown">
               <CountdownTimer />
             </span>
