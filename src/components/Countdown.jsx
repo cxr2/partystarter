@@ -54,16 +54,16 @@ export default function CountdownTimer() {
     let countdownOutput =
       days +
       " day" +
-      (days > 1 ? "s " : "") +
+      (days > 1 ? "s " : " ") +
       hours +
       " hour" +
-      (hours > 1 ? "s " : "") +
+      (hours > 1 ? "s " : " ") +
       minutes +
       " minute" +
-      (minutes > 1 ? "s " : "") +
+      (minutes > 1 ? "s " : " ") +
       seconds +
       " second" +
-      (seconds > 1 ? "s " : "");
+      (seconds > 1 ? "s " : " ");
 
     return countdownOutput;
   };

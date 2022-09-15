@@ -9,11 +9,11 @@ const Charades = () => {
   };
   return (
     <>
-      <h2 className="my-5 text-center">Charades Word Generator</h2>
+      <h1 className="my-5 text-center">Charades Word Generator</h1>
       <div className="word__choice d-flex align-items-center justify-content-center">
-        <h3 className="my-5">{word}</h3>
+        <h4 className="my-5">{word}</h4>
       </div>
-      <div className="container mt-5 charadesBtns">
+      <div className="container mt-3 charadesBtns">
         <div className="row justify-content-center">
           <Button text="Films" clicked={() => picker(films)} />
           <Button text="Tv Shows" clicked={() => picker(tvShows)} />

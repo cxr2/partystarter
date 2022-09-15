@@ -77,10 +77,10 @@ input#messageInput {
   width: 305px;
 }
 
-h2 {
+/* h2 {
   font-weight: 600 !important;
   font-size: 3em !important;
-}
+} */
 
 #word {
   display: block;
@@ -89,10 +89,6 @@ h2 {
 
 span #word {
   border: solid 1px black;
-}
-
-button.charades {
-  margin: 2em 1em;
 }
 
 h1 {
@@ -125,13 +121,17 @@ li {
   font-size: 1.2em;
 }
 
+#chatHistory .row {
+  padding: 1em 1em 0 1em;
+}
+
 .charadesBtns button {
   background-color: white;
   border-radius: 100px;
   border: solid 2px #287cca;
   color: #287cca;
   font-weight: 600;
-  padding: 0.5em 1em;
+  /* padding: 0.5em 1em; */
 }
 
 .charadesBtns button:hover {
@@ -142,7 +142,7 @@ li {
 div .word__choice {
   background-color: #f5f7fb;
   height: 5em;
-  width: 50%;
+  width: 70%;
   margin: 0 auto;
   border-radius: 20px;
 }
@@ -165,9 +165,18 @@ p.message {
 }
 
 #home img {
-  max-width: 25rem;
+  max-width: 22rem;
 }
 
 #chathistory ul {
   padding: 0;
+}
+
+.nameTag {
+  background-color: yellow;
+  padding: 2em;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }
