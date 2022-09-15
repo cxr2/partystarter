@@ -10,7 +10,8 @@ export default function Raffle() {
   // console.log(nameList);
   return (
     <div className="container">
-      <h1 className="my-5 text-center">Raffle</h1>
+      <h1 className="mt-5 text-center">Raffle</h1>
+      <h4 className="text-center mb-5">Minimum of 10 entries</h4>
       <RaffleForm />
     </div>
   );
