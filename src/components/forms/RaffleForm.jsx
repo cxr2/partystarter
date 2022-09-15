@@ -12,10 +12,10 @@ function RaffleForm() {
 
   const listItems = nameList.map((name) => (
     <div
-      className="capitalize m-2 col-2 d-flex justify-content-center"
+      className="capitalize m-2 col-2 d-flex justify-content-center align-items-center"
       key={uuidv4()}
     >
-      <span className="singlename p-2">{name}</span>
+      <span className="singlename p-2 text-center">{name}</span>
     </div>
   ));
 
